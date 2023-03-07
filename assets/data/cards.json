@@ -1,0 +1,213 @@
+[
+     {
+        "id": 1,
+        "image": "assets/img/bewd.jpg",
+        "name": "Blue-Eyes White Dragon",
+        "description": "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.",
+        "price":
+        {
+          "new":"99,99",
+          "old":"129.99"
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"ultra",
+        "type":"monster"
+      },
+      {
+        "id": 2,
+        "image": "assets/img/darkmagician.jpg",
+        "name": "Dark Magician",
+        "description": "The ultimate wizard in terms of attack and defense.",
+        "price":
+        {
+          "new":"69,99",
+          "old":null
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"ultra",
+        "type":"monster"
+      },
+      {
+        "id": 3,
+        "image": "assets/img/trihorneddragon.jpg",
+        "name": "Tri-Horned Dragon",
+        "description": "An unworthy dragon with three sharp horns sprouting from its head.",
+        "price":
+        {
+          "new":"109,99",
+          "old":"139,99"
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"secret",
+        "type":"monster"
+      },
+      {
+        "id": 4,
+        "image": "assets/img/celticguardian.jpg",
+        "name": "Celtic Guardian",
+        "description": "An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.",
+        "price":
+        {
+          "new":"29,99",
+          "old":"39,99"
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"super",
+        "type":"monster"
+      },
+      {
+        "id": 5,
+        "image": "assets/img/yami.jpg",
+        "name": "Yami",
+        "description": "All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.",
+        "price":
+        {
+          "new":"0,99",
+          "old":"1,99"
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"common",
+        "type":"spell"
+      },
+      {
+        "id": 6,
+        "image": "assets/img/traphole.jpg",
+        "name": "Trap Hole",
+        "description": "When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: Target that monster; destroy that target.",
+        "price":
+        {
+          "new":"6,99",
+          "old":null
+        },
+        "date": "2002-01-14",
+        "collectionId":"1",
+        "rarity":"super",
+        "type":"trap"
+      },
+      {
+        "id": 7,
+        "image": "assets/img/darkmagiciangirl.jpg",
+        "name": "Dark Magician Girl",
+        "description": "Gains 300 ATK for every Dark Magician or Magician of Black Chaos in the GY.",
+        "price":
+        {
+          "new":"96,99",
+          "old":"100.00"
+        },
+        "date": "2022-08-05",
+        "collectionId":"2",
+        "rarity":"ghost",
+        "type":"monster"
+      },
+      {
+        "id": 8,
+        "image": "assets/img/aluber.jpg",
+        "name": "Aluber the Jester of Despia",
+        "description": "If this card is Normal or Special Summoned: You can add 1 Branded Spell/Trap from your Deck to your hand. If a face-up Fusion Monster you control is destroyed by battle, or leaves the field because of an opponent's card effect, while this card is in your GY: You can target 1 Effect Monster your opponent controls; Special Summon this card, and if you do, negate the targeted monster's effects until the end of this turn. You can only use 1 Aluber the Jester of Despia effect per turn, and only once that turn.",
+        "price":
+        {
+          "new":"5,99",
+          "old":"10.00"
+        },
+        "date": "2022-08-05",
+        "collectionId":"2",
+        "rarity":"ultra",
+        "type":"monster"
+      },
+      {
+        "id": 9,
+        "image": "assets/img/dramaturge.jpg",
+        "name": "Aluber the Jester of Despia",
+        "description": "If a Fusion, Synchro, Xyz, or Link Monster is Special Summoned (except during the Damage Step): You can target 1 Effect Monster on the field; negate its effects until the end of this turn. If this card in your hand or field is used as Fusion Material, and sent to the GY or banished: You can Special Summon this card. You can only use each effect of Dramaturge of Despia once per turn.",
+        "price":
+        {
+          "new":"0,99",
+          "old":"1.50"
+        },
+        "date": "2022-08-05",
+        "collectionId":"2",
+        "rarity":"ultra",
+        "type":"monster"
+      },
+      {
+        "id": 10,
+        "image": "assets/img/dramaturge.jpg",
+        "name": "Despia, Theater of the Branded",
+        "description": "During your Main Phase: You can Fusion Summon 1 Level 8 or higher Fusion Monster from your Extra Deck, using monsters from your hand or field as material. If a face-up non-Fusion Fairy monster you control leaves the field by an opponent's card effect, or is destroyed by battle: You can target 1 Level 8 or higher Fusion Monster in your GY; Special Summon it. You can only use each effect of Despia, Theater of the Branded once per turn.",
+        "price":
+        {
+          "new":"0,59",
+          "old":"1.00"
+        },
+        "date": "2022-08-05",
+        "collectionId":"2",
+        "rarity":"ultra",
+        "type":"spell"
+      },
+      {
+        "id": 11,
+        "image": "assets/img/dramaturge.jpg",
+        "name": "Marincess Great Bubble Reef",
+        "description": "2+ WATER monsters Once per turn, during each Standby Phase: You can banish 1 WATER monster from your GY or face-up field; draw 1 card. Each time a monster(s) is banished face-up: This card gains 600 ATK for each, until the end of this turn. You can send 1 WATER monster from your hand to the GY; Special Summon 1 of your banished Marincess monsters. You can only use this effect of Marincess Great Bubble Reef once per turn.",
+        "price":
+        {
+          "new":"0,19",
+          "old":null
+        },
+        "date": "2021-09-15",
+        "collectionId":"3",
+        "rarity":"common",
+        "type":"monster"
+      },
+      {
+        "id": 12,
+        "image": "assets/img/marincess.jpg",
+        "name": "Marincess Great Bubble Reef",
+        "description": "2+ WATER monsters Once per turn, during each Standby Phase: You can banish 1 WATER monster from your GY or face-up field; draw 1 card. Each time a monster(s) is banished face-up: This card gains 600 ATK for each, until the end of this turn. You can send 1 WATER monster from your hand to the GY; Special Summon 1 of your banished Marincess monsters. You can only use this effect of Marincess Great Bubble Reef once per turn.",
+        "price":
+        {
+          "new":"0,19",
+          "old":null
+        },
+        "date": "2021-09-15",
+        "collectionId":"3",
+        "rarity":"common",
+        "type":"monster"
+      },
+      {
+        "id": 13,
+        "image": "assets/img/chuche.jpg",
+        "name": "Virtual World Gate - Chuche",
+        "description": "You can target 1 face-up card on the field; shuffle 2 of your banished Virtual World cards with different names from each other into the Deck, then destroy that card. During your Main Phase: You can banish this card from your GY, then target 1 Virtual World monster you control; increase or decrease its Level/Rank by 3 until the end of this turn. You can only use each effect of Virtual World Gate - Chuche once per turn.",
+        "price":
+        {
+          "new":"0,79",
+          "old":null
+        },
+        "date": "2021-09-15",
+        "collectionId":"3",
+        "rarity":"rare",
+        "type":"trap"
+      },
+      {
+        "id": 14,
+        "image": "assets/img/lulu.jpg",
+        "name": "Virtual World Mai-Hime - Lulu",
+        "description": "If this card is in your hand: You can target 1 Virtual World card you control; send 1 Virtual World card of a different type (Monster, Spell, Trap) from your Deck to the GY, and if you do, Special Summon this card, then, you can add 1 Virtual World card of the third type from your Deck to your hand, except Virtual World Mai-Hime - Lulu. For the rest of this turn, you can only Special Summon Level/Rank 3 or higher monsters. You can only use this effect of Virtual World Mai-Hime - Lulu once per turn.",
+        "price":
+        {
+          "new":"3,49",
+          "old":"5.99"
+        },
+        "date": "2021-09-15",
+        "collectionId":"3",
+        "rarity":"secret",
+        "type":"monster"
+      }
+      
+]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TCGMarket</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.ico" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/mediaquery.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+        <!--Header-->
+        <header>
+            <nav class="navbar navbar-light bg-light navbar-expand-sm" id="navigation">
+
+            </nav>
+        </header>
+<!--FORMA-->
+<div class="container-fluid" id="modalBoxForm">
+    <div class="container d-flex justify-content-center flex-column">
+        <h2 class="text-center mb-5 display-4 text-white mt-5" id="subscribeNaslov">Contact us!</h2>
+        <!--FORMA-->
+        <form action="#" class="d-flex align-items-center flex-column">
+            <!--FirstName-->
+             <div class="formElements d-flex flex-lg-row flex-column">
+                <div class="d-flex flex-column">
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                    <p class="textUpozorenje" id="firstNameError"></p>
+                </div>
+                <!--LastName-->
+                <div class="d-flex flex-column">
+                    <input type="text" class="ml-lg-4" name="lastName" id="lastName" placeholder="Last Name">
+                    <p class="textUpozorenje ml-lg-4" id="lastNameError"></p>
+                </div>
+             </div>
+             <!--Email-->
+             <div class="formElements d-flex flex-lg-row flex-column">
+                    <div class="d-flex flex-column">
+                        <input type="email" name="email" id="email" placeholder="E-mail">
+                        <p class="textUpozorenje" id="emailError"></p>
+                    </div>
+                    <!--EmailConfirm-->
+                    <div class="d-flex flex-column">
+                        <input type="text" class="ml-lg-4 w-md-100" name="emailConfirm" id="emailConfirm" placeholder="Confirm E-mail">
+                        <p class="textUpozorenje ml-lg-4" id="emailConfirmError"></p>
+                    </div>
+            </div>
+            <!--DDL GODINE-->
+            <div id="ddlNaslov" class="mb-1 mt-4">
+                    <h1 class="text-white mb-5">Date Of Birth</h1>
+                </div>
+                <div id="ddlDatum" class="d-flex flex-lg-row flex-column mb-lg-4">
+                    <div id="ddlYear" class="mb-5 mb-lg-0">
+                        <!--dinamicko ispisivanje-->
+                    </div>
+                    <span class="hideError " id="godineError">*</span>
+                    <div id="ddlMonth" class="ml-lg-5 ml-0 mb-5 mb-lg-0">
+                        <!--dinamicko ispisivanje-->
+                    </div>
+                    <span class="hideError" id="meseciError">*</span>
+                    <div id="ddlDay" class="ml-lg-5 ml-0">
+                        <!--dinamicko ispisivanje-->
+                    </div>
+                    <span class="hideError" id="daniError">*</span>
+                </div>
+                <h1 class="text-white mt-3">Gender</h1>
+                <div id="rbPolovi" class="m-5 text-white d-flex flex-lg-row">
+                    <input type="radio" name="Pol" id="polMuski" value="Male"><label for="muskiPol" class="ml-3">&nbsp; Male &nbsp;</label>
+                    <input type="radio" name="Pol" id="polZenski" value="Female" class="ml-5"><label for="zenskiPol" class="ml-3">&nbsp; Female&nbsp;</label>
+                    <input type="radio" name="Pol" id="polMuski" value="Other" class="ml-5"><label for="drugo" class="ml-3">&nbsp;Other&nbsp;</label>
+                </div>
+                <p class="textUpozorenje ml-4" id="radioButtonError"></p>
+                <button type="button" class="btn btn-outline-secondary mt-5 mb-5" id="submitForme">Submit</i></button>
+        </form>
+    </div>
+</div>
+        <!--FOOTER-->
+        <footer class="bg-light">
+
+        </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/db78232651.js" crossorigin="anonymous"></script>
+<script src="assets/js/contact.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html> 

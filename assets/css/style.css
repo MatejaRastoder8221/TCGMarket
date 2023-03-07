@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  font-family: "Anton", sans-serif; }
+
+a {
+  text-decoration: none; }
+
+.visinaZaHr {
+    height: 5px; }
+  
+.lightGrayText {
+    color: #A9A9A9; }
+  
+.orangeBgColor {
+    background: linear-gradient(90deg, #fbad6b 0%, #fcbd88 50%, #fdd8b9 100%, #feead9 100%, white 100%); }
+.orangeTextColor {
+    color: #fbad6b; }
+  
+.blueBgColor {
+    background: linear-gradient(90deg, #498c9f 0%, #8cb7c3 50%, #b2cfd7 76%, #c7dce2 100%, #d8e7eb 100%, white 100%); }
+  
+.blueTextColor {
+    color: #3f47cc; }
+  
+#shopAdvertisement img{
+    height: 20vw;
+    margin: auto;
+    display: block;
+    padding: 1vw 0;
+}
+#shopAdvertisement .btn{
+  height: 100%;
+  background-color:#3f47cc ;
+  color: #fff;
+}
+  
+i {
+    font-size: 2vw;
+    cursor: pointer;
+    width: 4%;
+    transition: 0.4s; }
+    i:hover {
+      text-shadow: 0px 0px 6px black; }
+      footer a {
+        color: #3f47cc; }
+        footer a:hover {
+          color: #fbad6b;
+          text-decoration: none; }
+      footer i:hover {
+        text-shadow: 0px 0px 0px black; }
+      footer #backToTop {
+        font-size: 2vw; }
+      footer i{
+          margin: 0 20px;
+      }
+    #aboutBlok p {
+      font-size: 1.1vw; }
+    #aboutBlok #btnPrikaziVise {
+      font-size: 1vw;
+      padding: 10px; }
+    #aboutBlok #specializationBlok p {
+      font-size: 1.5vw; }
+#slider {
+  background-image: url(../img/banner-01.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 1s;
+  height: 14vw; }
+#slider #modalBoxContact {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 4%;
+    height: 8%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%; }
+#slider #modalBoxContact i:hover {
+      text-shadow: 0px 0px 10px #fbad6b; }
+#slider img{
+  opacity: 50%;
+}
+
+.btn{
+    width: 100%;
+}
+.btn button{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    letter-spacing: bold;
+    margin-top: 6px;
+    cursor:pointer;
+}
+.card{
+    box-shadow: 0px 1px 4px #000;
+    transition: transform 0.5s;
+}
+.card:hover{
+    transform: translateY(-15px);
+}
+
+
+
+/* stil za contact formu*/
+ #modalBoxForm i {
+    color: white; }
+    #modalBoxForm i:hover {
+      color: #fbad6b; }
+#modalBoxForm{
+  background-color: #222;
+}
+form .formElements {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+form .textUpozorenje {
+  text-align: left;
+  color: red; }
+form input{
+  margin:0 1vw;
+}
+form input[type="text"], form input[type="email"] {
+  background: transparent;
+  border-bottom: 3px solid white;
+  font-size: 1.3vw;
+  margin-bottom: 5%;
+  padding: 3%;
+  color: white;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px; }
+form ::placeholder {
+  color: white;
+  opacity: 0.5; }
+form input[type="text"]:focus {
+  outline: none;
+  border-bottom: 3px solid #fbad6b;
+  transition: 0.5s; }
+form input[type="email"]:focus {
+  outline: none;
+  border-bottom: 3px solid #fbad6b;
+  transition: 0.5s; }
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1.3vw;
+  width: 150px;
+  background: transparent;
+  color: white;
+  border: 3px solid #fff;
+  padding: 3%;
+  margin: 0 1vw;
+  background-image: url("../img/arrowdownedit.png");
+  background-repeat: no-repeat;
+  background-position: 98% center;
+  cursor: pointer; }
+form select:focus {
+  outline: none;
+  border: 3px solid #fbad6b;
+  transition: 0.5s; }
+  form select:focus option {
+    background-color: #3f47cc; }
+form input[type="radio"] {
+  width: 20px;
+  height: 20px; }
+form label {
+  font-size: 1.1vw; }
+form .btn-outline-secondary {
+  color: white !important;
+  border: 4px solid white !important;
+  font-size: 1.3vw;
+  border-radius: 0 !important; }
+  form .btn-outline-secondary:hover {
+    background-color: #fbad6b; }
+form .borderUpozorenje {
+  border-bottom: 3px solid red; }
+form .hideError {
+  display: none; }
+form .showError {
+  display: block;
+  color: red;
+  margin-left: 5px;
+  font-size: 1vw; }

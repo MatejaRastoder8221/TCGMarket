@@ -1,0 +1,296 @@
+
+@media (max-width: 1600px){
+
+    .menu--off #leftArrow{
+        font-size: 3vw;
+        right: 10px;
+    }
+    #gornjiLeviBlok #bars{
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 1400px){
+
+    footer i{
+        font-size: 3vw;
+    }
+    #gornjiLeviBlok h1{
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 1250px){
+    #menu #nav ul li a{
+        font-size: 4vw;
+    }
+    input[type="text"],input[type="email"]{
+        width: 250px;
+      }
+    form input[type="text"]::placeholder{
+        font-size: 2.5vw;
+    }
+    form input[type="email"]::placeholder{
+        font-size: 2.5vw;
+    }
+
+    form select{
+        width: 160px;
+        font-size: 2vw;
+    }
+    form input[type="radio"]{
+        width: 25px;
+        height: 25px;
+    }
+    form label{
+        font-size: 2.5vw;
+    }
+    form .btn-outline-secondary{
+        font-size: 2vw;
+    }
+
+    #aboutBlok #specializationBlok i{
+        font-size: 4vw;
+    }
+    #aboutBlok #specializationBlok p{
+        font-size: 3.5vw;
+    }
+
+    #aboutBlok p{
+        font-size: 2vw;
+    }
+
+    #aboutBlok #btnPrikaziVise{
+        font-size: 2vw;
+    }
+    #author p{
+        font-size: 2.5vw;
+    }
+    #author #showMoreAuthor a i{
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 1100px){
+    .menu--off #leftArrow{
+        font-size: 3vw;
+        right: 10px;
+    }
+    #gornjiLeviBlok h1{
+        font-size: 6vw;
+    }
+    #author p{
+        font-size: 3vw;
+    }
+    #author input[type="button"]{
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 991px){
+    #menu #nav ul li a{
+        font-size: 6vw;
+    }
+    form select{
+        width: 180px;
+        font-size: 2.3vw;
+    }
+    form .btn-outline-secondary{
+        font-size: 3vw;
+    }
+
+    footer i{
+        font-size: 4.5vw;
+    }
+    footer #backToTop{
+        font-size: 3.5vw;
+    }
+}
+@media (max-width: 767.98px) {
+    footer #backToTop{
+        font-size: 4vw;
+    }
+    form select{
+        width: 250px;
+        font-size: 3vw;
+    }
+    form label{
+        font-size: 3vw;
+    }
+    input[type="text"],input[type="email"]{
+        width: 330px;
+      }
+    form input[type="text"]::placeholder{
+        font-size: 3.3vw;
+    }
+    form input[type="email"]::placeholder{
+        font-size: 3.3vw;
+    }
+    #aboutBlok #specializationBlok i{
+        font-size: 10vw;
+    }
+    #aboutBlok #specializationBlok p{
+        font-size: 4.5vw;
+    }
+
+    #aboutBlok p{
+        font-size: 3vw;
+    }
+
+    #aboutBlok #btnPrikaziVise{
+        font-size: 3vw;
+    }
+    #gornjiLeviBlok h1{
+        font-size: 11vw;
+    }
+    #gornjiLeviBlok #bars{
+        font-size: 6vw;
+    }
+    #author p{
+        font-size: 4.5vw;
+    }
+    #author input[type="button"]{
+        font-size: 4vw;
+    }
+    #author #showMoreAuthor a i{
+        font-size: 7vw;
+    }
+    footer i{
+        font-size: 5.5vw;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .menu--off #leftArrow{
+        font-size: 8vw;
+        right: 20px;
+    }
+    form select{
+        font-size: 4vw;
+    }
+    .fill{
+        width: 100%;
+        height: 100%;
+    }
+
+    form input[type="text"]::placeholder{
+        font-size: 5vw;
+    }
+    form input[type="email"]::placeholder{
+        font-size: 5vw;
+    }
+    form label{
+        font-size: 5vw;
+    }
+
+    form input[type="text"],input[type="email"]{
+        width: 250px;
+        height: 45px;
+        font-size: 5vw;
+      }
+    form .btn-outline-secondary{
+        font-size: 5vw;
+    }
+    #content1 h2{
+        font-size: 14vw;
+    }
+    #aboutBlok #specializationBlok i{
+        font-size: 8.5vw;
+    }
+    #aboutBlok #specializationBlok p{
+        font-size: 7vw;
+    }
+
+    #aboutBlok p{
+        font-size: 3.5vw;
+    }
+
+    #aboutBlok #btnPrikaziVise{
+        font-size: 3.5vw;
+    }
+    #radnici h2{
+        font-size: 10vw;
+    }
+    #author input[type="button"]{
+        font-size: 5vw;
+    }
+    #author #showMoreAuthor a i{
+        font-size: 9vw;
+    }
+    footer i{
+        font-size: 6.5vw;
+    }
+    footer #backToTop{
+        font-size: 4.5vw;
+    }
+}
+
+@media (max-width: 445.98px){
+
+    #aboutBlok p{
+        font-size: 4vw;
+    }
+
+    #aboutBlok #btnPrikaziVise{
+        font-size: 4vw;
+    }
+    #content1 #aboutBlok h3{
+        font-size: 10vw;
+    }
+    #gornjiLeviBlok h1{
+        font-size: 14vw;
+    }
+    #gornjiLeviBlok #bars{
+        font-size: 8vw;
+    }
+    #author p{
+        font-size: 5.5vw;
+    }
+    footer i{
+        font-size: 7.5vw;
+    }
+    .menu--off #leftArrow{
+        font-size: 10vw;
+        right: 20px;
+    }
+}
+
+@media (max-width: 375.98px){
+    #menu #nav ul li a{
+        font-size: 8vw;
+    }
+    form input[type="text"]::placeholder{
+        font-size: 6vw;
+    }
+    form input[type="email"]::placeholder{
+        font-size: 6vw;
+    }
+
+    form select{
+        font-size: 6vw;
+    }
+
+    form input[type="text"],input[type="email"]{
+        width: 230px;
+        height: 45px;
+        font-size: 6vw;
+      }
+    
+    #aboutBlok #specializationBlok i{
+        font-size: 15vw;
+    }
+    #aboutBlok #specializationBlok p{
+        font-size: 9vw;
+    }
+
+    #content1 #aboutBlok h3{
+        font-size: 12vw;
+    }
+
+    footer i{
+        font-size: 8.5vw;
+    }
+    footer #backToTop{
+        font-size: 5.5vw;
+    }
+}

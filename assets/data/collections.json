@@ -1,0 +1,27 @@
+[
+    {
+        "id":"1",
+        "name":
+        {
+            "full":"Legend Of Blue-Eyes",
+            "short":"LOB"
+        }
+    },
+    {
+        "id":"2",
+        "name":
+        {
+            "full":"Ghosts From The Past 2",
+            "short":"GFP2"
+        }
+    },
+    {
+        "id":"3",
+        "name":
+        {
+            "full":"2021 Tin of Ancient Battles",
+            "short":"MP21"
+        }
+    }
+
+]
