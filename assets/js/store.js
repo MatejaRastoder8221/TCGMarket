@@ -3,6 +3,23 @@ const BASEURL ="assets/data/"
 window.onload = function(){
 //dinamicko ispisivanje navigacije
 ajaxCallBack(BASEURL+"menu.json",function(result){
+header(result);
+});
+//podaci iz collections.json
+ajaxCallBack(BASEURL+"collections.json",function(result){
+    //console.log(result);
+    printCollections(result)
+});
+//podaci iz cards.json
+ajaxCallBack(BASEURL+"cards.json",function(result){
+    //console.log(result);
+    printCards(result)
+});
+//pozivanje funkcije za ispis footera
+ispisFootera();
+}
+//f-ja za ispis navigacije
+function header(data){
     let html=` <div class="container">
     <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png"/></a>
     <button 
@@ -19,24 +36,11 @@ ajaxCallBack(BASEURL+"menu.json",function(result){
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" id="pocetna">`
     
-    for (link of result){
+    for (link of data){
         html+=`<li class="nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
     }
     html+=`</ul></div></div>`
     $("#navigation").html(html);
-});
-//podaci iz collections.json
-ajaxCallBack(BASEURL+"collections.json",function(result){
-    //console.log(result);
-    printCollections(result)
-});
-//podaci iz cards.json
-ajaxCallBack(BASEURL+"cards.json",function(result){
-    //console.log(result);
-    printCards(result)
-});
-//pozivanje funkcije za ispis footera
-ispisFootera();
 }
 //f-ja za ispis kolekcija na shop stranici 
 function printCollections(data){
@@ -51,14 +55,14 @@ function printCards(data){
     let html=""
     for(karta of data){
         html+=`
-        <div class="col-3">
+        <div class="col-md-3 col-sm-6 container-fluid">
         <div class="card">
             <img src="${karta.image}" alt="${karta.name}" class="card-image-top img-fluid">
             <div class="card-body d-flex flex-column">
                 <h5 class="text-center">${karta.name}</h5>
         `
         if(karta.price.old==null){
-            html+=`<h5 class="card-text text-center">$${karta.price.new}</h5>`
+            html+=`<p class="card-text text-center">$${karta.price.new}</p>`
         }
         else{
             html+=`<p class="card-text text-center">$${karta.price.new}</p>

@@ -3,6 +3,12 @@ const BASEURL ="assets/data/"
 window.onload = function(){
 //dinamicko ispisivanje navigacije
 ajaxCallBack(BASEURL+"menu.json",function(result){
+    header(result);
+});
+ispisFootera();
+}
+//f-ja za ispis navigacije
+function header(data){
     let html=` <div class="container">
     <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png"/></a>
     <button 
@@ -19,13 +25,11 @@ ajaxCallBack(BASEURL+"menu.json",function(result){
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" id="pocetna">`
     
-    for (link of result){
+    for (link of data){
         html+=`<li class="nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
     }
     html+=`</ul></div></div>`
     $("#navigation").html(html);
-});
-ispisFootera();
 }
 //ispis footera
 function ispisFootera(){
