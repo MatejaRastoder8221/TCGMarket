@@ -55,7 +55,7 @@ function header(data){
 }
 //f-ja za ispis kolekcija na shop stranici 
 function printCollections(data){
-    let html="<h3>Collections</h3><hr/>"
+    let html="<p>Collections</p><hr/>"
     for(kolekcija of data){
         html+=`<a href="#" class="filter-by-collection" data-collectionid="${kolekcija.id}">${kolekcija.name.full}</a><br/><br/>`
     }
