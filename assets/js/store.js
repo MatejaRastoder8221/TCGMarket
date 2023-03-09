@@ -54,11 +54,13 @@ function header(data){
 }
 //f-ja za ispis kolekcija na shop stranici 
 function printCollections(data){
-    let html="<h3>Kolekcije</h3><hr/>"
+    let html="<h3>Collections</h3><hr/>"
     for(kolekcija of data){
         html+=`<a href="#" class="filter-by-collection" data-collectionid="${kolekcija.id}">${kolekcija.name.full}</a><br/><br/>`
     }
+    html+=`<a href="#" class="filter-by-collection" data-collectionid="0">All collections</a><br/><br/>`
     $("#collections").html(html);
+    $("#collections a").click(filterByCollection);
 }
 //funkcija za ispis karata tj. proizvoda 
 function printCards(data){
@@ -125,9 +127,6 @@ function ajaxCallBack(url,result){
 }
 
 //search
-
-
-
 function filterPosts(){
     const unosKorisnika = this.value;
     $.ajax({
@@ -148,4 +147,31 @@ function filterPosts(){
     });
 }
 
+//filtriranje po kategorijama
+function filterByCollection(e){
+    e.preventDefault();
+    const idKolekcije=this.dataset.collectionid;
+    $.ajax({
+        url: "assets/data/cards.json",
+        method: "get",
+        dataType: "json",
+        success:function(karte){
+            if (idKolekcije==0){
+                printCards(karte);
+            }
+            else{
+                const filtriraneKarte = karte.filter(el=>
+                    {
+                     if (el.collectionId==idKolekcije)
+                     {
+                        return true;
+                     }   
+                    });
+                    printCards(filtriraneKarte);
+            }
+
+        },
+        error: function(xhr){console.log(xhr);}
+    });
+}
 
