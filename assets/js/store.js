@@ -3,6 +3,7 @@ const BASEURL ="assets/data/"
 window.onload = function(){
     //search 
     document.getElementById("search").addEventListener("input", filterPosts);
+    document.getElementById("search").addEventListener("blur", clearSearch);
 //dinamicko ispisivanje navigacije
 ajaxCallBack(BASEURL+"menu.json",function(result){
 header(result);
@@ -175,3 +176,7 @@ function filterByCollection(e){
     });
 }
 
+//ciscenje search
+function clearSearch(){
+    $(this).val("");
+}
