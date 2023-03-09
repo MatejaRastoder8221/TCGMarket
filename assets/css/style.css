@@ -40,7 +40,16 @@ a {
   background-color:#3f47cc ;
   color: #fff;
 }
-  
+.col-3{
+  padding: 0.5vw;
+}
+.card{
+  height: 32vw;
+}
+.card img{
+  padding:0.5vw;
+}
+
 i {
     font-size: 2vw;
     cursor: pointer;

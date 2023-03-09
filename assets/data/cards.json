@@ -122,7 +122,7 @@
       {
         "id": 9,
         "image": "assets/img/dramaturge.jpg",
-        "name": "Aluber the Jester of Despia",
+        "name": "Dramaturge of Despia",
         "description": "If a Fusion, Synchro, Xyz, or Link Monster is Special Summoned (except during the Damage Step): You can target 1 Effect Monster on the field; negate its effects until the end of this turn. If this card in your hand or field is used as Fusion Material, and sent to the GY or banished: You can Special Summon this card. You can only use each effect of Dramaturge of Despia once per turn.",
         "price":
         {
@@ -136,7 +136,7 @@
       },
       {
         "id": 10,
-        "image": "assets/img/dramaturge.jpg",
+        "image": "assets/img/theater.jpg",
         "name": "Despia, Theater of the Branded",
         "description": "During your Main Phase: You can Fusion Summon 1 Level 8 or higher Fusion Monster from your Extra Deck, using monsters from your hand or field as material. If a face-up non-Fusion Fairy monster you control leaves the field by an opponent's card effect, or is destroyed by battle: You can target 1 Level 8 or higher Fusion Monster in your GY; Special Summon it. You can only use each effect of Despia, Theater of the Branded once per turn.",
         "price":
@@ -151,12 +151,12 @@
       },
       {
         "id": 11,
-        "image": "assets/img/dramaturge.jpg",
+        "image": "assets/img/argonaut.jpg",
         "name": "Marincess Great Bubble Reef",
-        "description": "2+ WATER monsters Once per turn, during each Standby Phase: You can banish 1 WATER monster from your GY or face-up field; draw 1 card. Each time a monster(s) is banished face-up: This card gains 600 ATK for each, until the end of this turn. You can send 1 WATER monster from your hand to the GY; Special Summon 1 of your banished Marincess monsters. You can only use this effect of Marincess Great Bubble Reef once per turn.",
+        "description": "2+ WATER monsters | While this card is in the Extra Monster Zone, your opponent's monsters cannot attack any monsters, except this one.",
         "price":
         {
-          "new":"0,19",
+          "new":"19,19",
           "old":null
         },
         "date": "2021-09-15",
@@ -168,7 +168,7 @@
         "id": 12,
         "image": "assets/img/marincess.jpg",
         "name": "Marincess Great Bubble Reef",
-        "description": "2+ WATER monsters Once per turn, during each Standby Phase: You can banish 1 WATER monster from your GY or face-up field; draw 1 card. Each time a monster(s) is banished face-up: This card gains 600 ATK for each, until the end of this turn. You can send 1 WATER monster from your hand to the GY; Special Summon 1 of your banished Marincess monsters. You can only use this effect of Marincess Great Bubble Reef once per turn.",
+        "description": "2+ WATER monsters | Once per turn, during each Standby Phase: You can banish 1 WATER monster from your GY or face-up field; draw 1 card. Each time a monster(s) is banished face-up: This card gains 600 ATK for each, until the end of this turn. You can send 1 WATER monster from your hand to the GY; Special Summon 1 of your banished Marincess monsters. You can only use this effect of Marincess Great Bubble Reef once per turn.",
         "price":
         {
           "new":"0,19",

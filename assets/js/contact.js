@@ -36,7 +36,7 @@ function ispisFootera(){
         <a href="https://www.instagram.com"><i class="fa fa-3x fa-brands fa-instagram"></i></a>
         <a href="https://www.facebook.com"><i class="fa fa-3x fa-brands fa-facebook"></i></a>
         <a href="sitemap.xml"><i class="fa fa-3x fa-sitemap"></i></a>
-        <a href="dokumentacijaPdf.pdf"><i class="fa fa-3x fa-file"></i></a>
+        <a href="Documentation.pdf"><i class="fa fa-3x fa-file"></i></a>
     </div>
     <div class="col-lg-4 col-12 mb-5 mb-lg-0 text-center">
         <h2 class="blueTextColor"><i class="fa fa-copyright blueTextColor"></i>Mateja Rastoder 82/21</h2>

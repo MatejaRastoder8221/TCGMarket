@@ -1,7 +1,6 @@
 const BASEURL ="assets/data/"
 
 window.onload = function(){
-imageSlider();
 //dinamicko ispisivanje navigacije
 ajaxCallBack(BASEURL+"menu.json",function(result){
     let html=` <div class="container">
@@ -26,9 +25,59 @@ ajaxCallBack(BASEURL+"menu.json",function(result){
     html+=`</ul></div></div>`
     $("#navigation").html(html);
 });
+//podaci iz collections.json
+ajaxCallBack(BASEURL+"collections.json",function(result){
+    //console.log(result);
+    printCollections(result)
+});
+//podaci iz cards.json
+ajaxCallBack(BASEURL+"cards.json",function(result){
+    //console.log(result);
+    printCards(result)
+});
+//pozivanje funkcije za ispis footera
 ispisFootera();
 }
-//ispis footera
+//f-ja za ispis kolekcija na shop stranici 
+function printCollections(data){
+    let html="<h3>Kolekcije</h3><hr/>"
+    for(kolekcija of data){
+        html+=`<a href="#" class="filter-by-collection" data-collectionid="${kolekcija.id}">${kolekcija.name.full}</a><br/><br/>`
+    }
+    $("#collections").html(html);
+}
+//funkcija za ispis karata tj. proizvoda 
+function printCards(data){
+    let html=""
+    for(karta of data){
+        html+=`
+        <div class="col-3">
+        <div class="card">
+            <img src="${karta.image}" alt="${karta.name}" class="card-image-top img-fluid">
+            <div class="card-body d-flex flex-column">
+                <h5 class="text-center">${karta.name}</h5>
+        `
+        if(karta.price.old==null){
+            html+=`<h5 class="card-text text-center">$${karta.price.new}</h5>`
+        }
+        else{
+            html+=`<p class="card-text text-center">$${karta.price.new}</p>
+                   <p class="card-text text-center text-decoration-line-through">$${karta.price.old}</p>`
+        }
+        html+=`
+            <div class="btn mt-auto">
+                <button type="button">Add to cart<i class="fa fa-shopping-cart"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+    `
+        }
+        $("#products").html(html);      
+    }
+    
+
+//funkcija za ispis footera
 function ispisFootera(){
     let html=`
 <div class="container-fluid p-5">
@@ -60,43 +109,3 @@ function ajaxCallBack(url,result){
         error: function(xhr){console.log(xhr);}
     });
 }
-
-
-
-
-
-  //button Prikazi vise za about
-  $('#showMoreTextAbout').css("display", "none");
-  $('#btnPrikaziVise').click(function (e) {
-      e.preventDefault();
-      if ($('#showMoreTextAbout').is(':visible')) {
-          $('#showMoreTextAbout').slideUp();
-          $(this).val('Show More');
-      } else {
-          $('#showMoreTextAbout').slideDown();
-          $(this).val('Show Less');
-      }
-  });
-
-
-     //dodavanje boje texta na p tagove u about-u
-$("#specializationBlok p").addClass("orangeTextColor");
-
-     //SLIDER
-var i = 0;
-var nizSlika = ["banner-01", "banner-02", "banner-03"];
-
-function imageSlider(){
-    document.getElementById("slider").style.backgroundImage = "url('assets/img/"+nizSlika[i]+".jpg')";
-
-    if(i < nizSlika.length-1){
-        i++;
-    }
-    else{
-        i=0;
-    }
-
-    setTimeout("imageSlider()", 2600);
-}
-
-
