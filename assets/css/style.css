@@ -206,3 +206,6 @@ form .showError {
 #products .col-md-3{
   padding: 0.6vw;
 }
+#products .col-sm-6{
+  padding: 1vw;
+}
