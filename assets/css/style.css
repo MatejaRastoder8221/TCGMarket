@@ -209,3 +209,10 @@ form .showError {
 .card{
   height: 100%;
 }
+#search{
+  background-color: #eee;
+  border-radius: 15px;
+  width: 50vw;
+  height: 40px;
+  margin:0 auto;
+}

@@ -1,6 +1,8 @@
 const BASEURL ="assets/data/"
 
 window.onload = function(){
+    //search 
+    document.getElementById("search").addEventListener("input", filterPosts);
 //dinamicko ispisivanje navigacije
 ajaxCallBack(BASEURL+"menu.json",function(result){
 header(result);
@@ -21,7 +23,7 @@ ispisFootera();
 //f-ja za ispis navigacije
 function header(data){
     let html=` <div class="container">
-    <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png"/></a>
+    <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png" alt="banner"/></a>
     <button 
     type="button" 
     data-bs-toggle="collapse" 
@@ -35,9 +37,17 @@ function header(data){
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" id="pocetna">`
-    
+    let activeLi=0;
+    let klasa="";
     for (link of data){
-        html+=`<li class="nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
+        if(activeLi == 1){
+            klasa="active";
+        }
+        else{
+            klasa="";
+        }
+        html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
+        activeLi++;
     }
     html+=`</ul></div></div>`
     $("#navigation").html(html);
@@ -113,3 +123,29 @@ function ajaxCallBack(url,result){
         error: function(xhr){console.log(xhr);}
     });
 }
+
+//search
+
+
+
+function filterPosts(){
+    const unosKorisnika = this.value;
+    $.ajax({
+        url: "assets/data/cards.json",
+        method: "get",
+        dataType: "json",
+        success:function(karte){
+            const filtriraneKarte = karte.filter(el=>
+            {
+             if (el.name.toLowerCase().indexOf(unosKorisnika.toLowerCase()) !== -1)
+             {
+                return true;
+             }   
+            });
+            printCards(filtriraneKarte);
+        },
+        error: function(xhr){console.log(xhr);}
+    });
+}
+
+
