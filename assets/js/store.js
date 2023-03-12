@@ -16,8 +16,9 @@ ajaxCallBack(BASEURL+"collections.json",function(result){
 //podaci iz cards.json
 ajaxCallBack(BASEURL+"cards.json",function(result){
     //console.log(result);
-    printCards(result);
     setLS("karteLS",result);
+    setLS("svekarteLS",result);
+    printCards(result);
 });
 //pozivanje funkcije za ispis footera
 ispisFootera();
@@ -56,25 +57,24 @@ function header(data){
 }
 //f-ja za ispis kolekcija na shop stranici 
 function printCollections(data){
-    let html="<p>Collections</p><hr/>"
+    let html="<hr/><p>Collections</p>"
     for(kolekcija of data){
         html+=`<a href="#" class="filter-by-collection" data-collectionid="${kolekcija.id}">${kolekcija.name.full}</a><br/><br/>`
     }
     html+=`<a href="#" class="filter-by-collection" data-collectionid="0">All collections</a><br/><br/>`
-    html+=`<input type="checkbox" id="k1" name="LOB" value="legend">
-    <label for="LOB"> LOB </label><br>
-    <input type="checkbox" id="k2" name="GFP2" value="ghost">
-    <label for="GFP2"> GFP2 </label><br>
-    <input type="checkbox" id="k3" name="MP21" value="magic">
-    <label for="MP21"> MP21 </label><br>
-    <select id="sort" class="form-control">
+    html+=`
+    <hr/>
+    <p>Sort items</p>
+    <select id="sort" class="form-control" name="ddlSort">
+        <option value="default">Sort by</option>
         <option value="namedescending">Name Descending</option>
         <option value="nameascending">Name Ascending</option>
+        <option value="priceasc">Price Ascending</option>
+        <option value="pricedesc">Price Descending</option>
     </select>`
     $("#collections").html(html);
     $("#collections a").click(filterByCollection);
-    $("#collections ").change(filterByCheck);
-
+    $("#sort").change(sortDdl);
 }
 //funkcija za ispis karata tj. proizvoda 
 function printCards(data){
@@ -103,7 +103,9 @@ function printCards(data){
     </div>
     `
         }
-        $("#products").html(html);      
+        $("#products").html(html);
+        setLS("karteLS",data);
+        //console.log(data);
     }
     
 
@@ -136,7 +138,25 @@ function ajaxCallBack(url,result){
         method: "get",
         dataType: "json",
         success:result,
-        error: function(xhr){console.log(xhr);}
+        error: function (jqXHR, exception) {
+            // console.log(jqXHR);
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            return msg;}
     });
 }
 
@@ -170,6 +190,7 @@ function filterByCollection(e){
         method: "get",
         dataType: "json",
         success:function(karte){
+            $("#sort").val("default");
             if (idKolekcije==0){
                 printCards(karte);
             }
@@ -182,6 +203,7 @@ function filterByCollection(e){
                      }   
                     });
                     printCards(filtriraneKarte);
+                    
             }
 
         },
@@ -200,13 +222,89 @@ function setLS(key,value){
 function getLS(key){
     return JSON.parse(localStorage.getItem(key));
 }
-var karte=getLS("karteLS");
+
+
+function sortDdl(){ 
+    let karte=getLS("karteLS");
+    let stampa;
+    if ($("#sort").val()=="namedescending"){
+        stampa=karte.sort(function(a,b){
+            if(a.name > b.name)
+            {
+                return -1
+            }
+            else if(a.name < b.name)
+            {
+                return 1
+            }
+            else{
+                return 0
+            }
+        });
+}
+else if ($("#sort").val()=="nameascending"){
+        stampa=karte.sort(function(a,b){
+        if(a.name > b.name)
+        {
+            return 1
+        }
+        else if(a.name < b.name)
+        {
+            return -1
+        }
+        else{
+            return 0
+        }
+    });
+}
+else if ($("#sort").val()=="priceasc"){
+    stampa=karte.sort(function(a,b){
+       if(parseFloat(a.price.new) > parseFloat(b.price.new))
+       {
+           return 1
+       }
+       else if(parseFloat(a.price.new) < parseFloat(b.price.new))
+       {
+           return -1
+       }
+       else{
+           return 0
+       }
+   });
+}
+else if ($("#sort").val()=="pricedesc"){
+    stampa=karte.sort(function(a,b){
+       if(parseFloat(a.price.new) > parseFloat(b.price.new))
+       {
+           return -1
+       }
+       else if(parseFloat(a.price.new) < parseFloat(b.price.new))
+       {
+           return 1
+       }
+       else{
+           return 0
+       }
+   });
+}
+else{
+    stampa = karte;
+}
+    if(stampa!=null){
+        printCards(stampa);
+    }
+}
+
+
+
+
+
 
 
 function filterByCheck(){
-    let stampa=karte; 
+    let stampa=[]; 
     if ($("#k1").is(':checked')){
-        stampa=karte.filter(e=>e.collectionId==1);
+        stampa+=karte.filter(e=>e.collectionId==1);
     } 
     if ($("#k2").is(':checked')){
         stampa=karte.sort(function(a,b){
