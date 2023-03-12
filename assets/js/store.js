@@ -16,7 +16,8 @@ ajaxCallBack(BASEURL+"collections.json",function(result){
 //podaci iz cards.json
 ajaxCallBack(BASEURL+"cards.json",function(result){
     //console.log(result);
-    printCards(result)
+    printCards(result);
+    setLS("karteLS",result);
 });
 //pozivanje funkcije za ispis footera
 ispisFootera();
@@ -60,8 +61,20 @@ function printCollections(data){
         html+=`<a href="#" class="filter-by-collection" data-collectionid="${kolekcija.id}">${kolekcija.name.full}</a><br/><br/>`
     }
     html+=`<a href="#" class="filter-by-collection" data-collectionid="0">All collections</a><br/><br/>`
+    html+=`<input type="checkbox" id="k1" name="LOB" value="legend">
+    <label for="LOB"> LOB </label><br>
+    <input type="checkbox" id="k2" name="GFP2" value="ghost">
+    <label for="GFP2"> GFP2 </label><br>
+    <input type="checkbox" id="k3" name="MP21" value="magic">
+    <label for="MP21"> MP21 </label><br>
+    <select id="sort" class="form-control">
+        <option value="namedescending">Name Descending</option>
+        <option value="nameascending">Name Ascending</option>
+    </select>`
     $("#collections").html(html);
     $("#collections a").click(filterByCollection);
+    $("#collections ").change(filterByCheck);
+
 }
 //funkcija za ispis karata tj. proizvoda 
 function printCards(data){
@@ -180,3 +193,42 @@ function filterByCollection(e){
 function clearSearch(){
     $(this).val("");
 }
+
+function setLS(key,value){
+    localStorage.setItem(key,JSON.stringify(value));
+}
+function getLS(key){
+    return JSON.parse(localStorage.getItem(key));
+}
+var karte=getLS("karteLS");
+
+
+function filterByCheck(){
+    let stampa=karte; 
+    if ($("#k1").is(':checked')){
+        stampa=karte.filter(e=>e.collectionId==1);
+    } 
+    if ($("#k2").is(':checked')){
+        stampa=karte.sort(function(a,b){
+            if(a.name > b.name)
+            {
+                return 1
+            }
+            else {return -1}
+        });
+    }
+    if ($("#k3").is(':checked')){
+        stampa=karte.sort(function(a,b){
+            if(a.price.new > b.price.new)
+            {
+                return 1
+            }
+            else {return -1}
+        });
+    }
+    if (stampa != null){
+        printCards(stampa);
+    }
+}
+
+
