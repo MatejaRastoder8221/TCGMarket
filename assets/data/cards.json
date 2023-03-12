@@ -208,6 +208,36 @@
         "collectionId":"3",
         "rarity":"secret",
         "type":"monster"
+      },
+      {
+        "id": 15,
+        "image": "assets/img/gaia.jpg",
+        "name": "Gaia The Fierce Knigh",
+        "description": "Gaia The Fierce Knigh",
+        "price":
+        {
+          "new":"13.49",
+          "old":"15.99"
+        },
+        "date": "2021-09-15",
+        "collectionId":"1",
+        "rarity":"ultra",
+        "type":"monster"
+      },
+      {
+        "id": 16,
+        "image": "assets/img/exodia.jpg",
+        "name": "Exodia the Forbidden One",
+        "description": "If you have Right Leg of the Forbidden One, Left Leg of the Forbidden One, Right Arm of the Forbidden One and Left Arm of the Forbidden One in addition to this card in your hand, you win the Duel.",
+        "price":
+        {
+          "new":"113.49",
+          "old":"125.99"
+        },
+        "date": "2021-09-15",
+        "collectionId":"1",
+        "rarity":"ultra",
+        "type":"monster"
       }
       
 ]
