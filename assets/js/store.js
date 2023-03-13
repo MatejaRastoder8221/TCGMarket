@@ -46,14 +46,12 @@ function header(data){
     let activeLi=0;
     let klasa="";
     for (link of data){
-        if(activeLi == 1){
-            klasa="active";
-        }
-        else{
-            klasa="";
-        }
+        if (link.href=="cart.html"){
+            html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda"></span></a></li>`
+    }
+    else {
         html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
-        activeLi++;
+    }
     }
     html+=`</ul></div></div>`
     $("#navigation").html(html);
@@ -126,6 +124,7 @@ function printCards(data){
         }
         setLS("karteLS",data);
         //console.log(data);
+        $('.cartAdd').click(addToCart);
     }
     
 
@@ -356,4 +355,86 @@ function filterByCheck(){
     
 }
 
+//korpa 
+function addToCart(){
+    let idP = $(this).data("id");
+    // console.log(idP)
+
+    let productsCart = getLS("cart");
+    if(productsCart == null){
+        addFirstItemToCart();
+        printNumberOfProducts();
+    }
+    else{
+        if(productIsAlreadyInCart()){
+            updateQty();
+            printNumberOfProducts();
+        }
+        else{
+            addItemToCart();
+            printNumberOfProducts();
+        }
+    }
+
+    function addFirstItemToCart(){
+        let products = [
+            {
+                id: idP,
+                qty: 1
+            }
+        ];
+
+        setLS("cart", products);
+    }
+
+    function productIsAlreadyInCart(){
+        return productsCart.filter(el => el.id == idP).length;
+    }
+
+    function updateQty(){
+
+        let productsLS = getLS("cart");
+
+        for(let p of productsLS){
+            if(p.id == idP){
+                p.qty++;
+                break;
+            }
+        }
+
+        setLS("cart", productsLS);
+    }
+
+    function addItemToCart(){
+        let productLS = getLS("cart");
+
+        productLS.push({
+            id: idP,
+            qty: 1
+        });
+
+        setLS("cart", productLS);
+    }
+
+    function printNumberOfProducts(){
+        let productsCart = getLS("cart");
+    
+        if(productsCart == null){
+            $("#broj-proizvoda").html(`(0 products)`);
+        }
+        else{
+            let numberOfProducts = productsCart.length;
+            let txt = "";
+    
+            if(numberOfProducts == 1){
+                txt = "product";
+            }
+            else{
+                txt = "products";
+            }
+    
+            $("#broj-proizvoda").html(`(${numberOfProducts} ${txt})`)
+        }
+    }
+}
 
