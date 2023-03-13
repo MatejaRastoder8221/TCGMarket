@@ -248,7 +248,7 @@ function getLS(key){
     return JSON.parse(localStorage.getItem(key));
 }
 
-
+//sortiranje po dropdown listi
 function sortDdl(){ 
     let karte=getLS("karteLS");
     let stampa;
@@ -323,7 +323,7 @@ else{
 
 
 
-
+//filtriranje po checkboxevima
 
 
 function filterByCheck(){
