@@ -105,6 +105,9 @@
     footer #backToTop{
         font-size: 3.5vw;
     }
+    .cardlabel{
+        font-size: 3.5vw;
+    }
     
 }
 @media (max-width: 767.98px) {

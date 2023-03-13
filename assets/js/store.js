@@ -1,6 +1,8 @@
 const BASEURL ="assets/data/"
 
 window.onload = function(){
+    //ciscenje localstorage za filter po checkboxu
+    setLS("kolekcijaLS",null);
     //search 
     document.getElementById("search").addEventListener("input", filterPosts);
     document.getElementById("search").addEventListener("blur", clearSearch);
@@ -20,6 +22,7 @@ ajaxCallBack(BASEURL+"cards.json",function(result){
     setLS("svekarteLS",result);
     printCards(result);
 });
+
 //pozivanje funkcije za ispis footera
 ispisFootera();
 }
@@ -55,6 +58,7 @@ function header(data){
     html+=`</ul></div></div>`
     $("#navigation").html(html);
 }
+
 //f-ja za ispis kolekcija na shop stranici 
 function printCollections(data){
     let html="<hr/><p>Collections</p>"
@@ -64,17 +68,30 @@ function printCollections(data){
     html+=`<a href="#" class="filter-by-collection" data-collectionid="0">All collections</a><br/><br/>`
     html+=`
     <hr/>
-    <p>Sort items</p>
-    <select id="sort" class="form-control" name="ddlSort">
+    <label for="ddlSort">Sort items</label>
+    <select id="sort" title="ddlSort" class="form-control" name="ddlSort">
         <option value="default">Sort by</option>
         <option value="namedescending">Name Descending</option>
         <option value="nameascending">Name Ascending</option>
         <option value="priceasc">Price Ascending</option>
         <option value="pricedesc">Price Descending</option>
-    </select>`
+    </select>
+    <hr/>
+    <p>Card type</p>
+    <form action="">
+        <input type="checkbox" id="spellCard" name="cardType1" value="spell">
+        <label class="cardlabel" for="vehicle1">Spell</label><br>
+        <input type="checkbox" id="trapCard" name="cardType2" value="trap">
+        <label class="cardlabel" for="vehicle2">Trap</label><br>
+        <input type="checkbox" id="monsterCard" name="cardType3" value="monster">
+        <label class="cardlabel" for="monsterCard">Monster</label><br><br>
+    </form>
+    `
     $("#collections").html(html);
     $("#collections a").click(filterByCollection);
-    $("#sort").change(sortDdl);
+    
+    $("#collections").click(filterByCheck);
+    $("#collections").click(sortDdl);
 }
 //funkcija za ispis karata tj. proizvoda 
 function printCards(data){
@@ -96,7 +113,7 @@ function printCards(data){
         }
         html+=`
             <div class="btn mt-auto">
-                <button type="button">Add to cart<i class="fa fa-shopping-cart"></i></button>
+                <button type="button" data-id=${karta.id} class="button cartAdd">Add to cart<i class="fa fa-shopping-cart"></i></button>
             </div>
         </div>
     </div>
@@ -124,7 +141,7 @@ function ispisFootera(){
         <h2 class="blueTextColor"><i class="fa fa-copyright blueTextColor"></i>Mateja Rastoder 82/21</h2>
     </div>
     <div class="col-lg-4 col-12 text-center">
-        <a href="#navigation" id="backToTop">Back to top</a>
+        <a href="#top" id="backToTop">Back to top</a>
     </div>
 </div>
 </div>`
@@ -191,8 +208,12 @@ function filterByCollection(e){
         dataType: "json",
         success:function(karte){
             $("#sort").val("default");
+            document.getElementById("trapCard").checked = false;
+            document.getElementById("spellCard").checked = false;
+            document.getElementById("monsterCard").checked = false;
             if (idKolekcije==0){
                 printCards(karte);
+                setLS("kolekcijaLS",karte);
             }
             else{
                 const filtriraneKarte = karte.filter(el=>
@@ -202,6 +223,7 @@ function filterByCollection(e){
                         return true;
                      }   
                     });
+                    setLS("kolekcijaLS",filtriraneKarte);
                     printCards(filtriraneKarte);
                     
             }
@@ -302,31 +324,33 @@ else{
 
 
 function filterByCheck(){
-    let stampa=[]; 
-    if ($("#k1").is(':checked')){
-        stampa+=karte.filter(e=>e.collectionId==1);
+    let prikazane=getLS("kolekcijaLS");
+    if(prikazane==null){
+        prikazane=getLS("svekarteLS");
+    }
+    let stampa1=[];
+    let stampa2=[]; 
+    let stampa3=[]; 
+    if ($("#spellCard").is(':checked')){
+            stampa1=prikazane.filter(e=>e.type=="spell");
     } 
-    if ($("#k2").is(':checked')){
-        stampa=karte.sort(function(a,b){
-            if(a.name > b.name)
-            {
-                return 1
-            }
-            else {return -1}
-        });
-    }
-    if ($("#k3").is(':checked')){
-        stampa=karte.sort(function(a,b){
-            if(a.price.new > b.price.new)
-            {
-                return 1
-            }
-            else {return -1}
-        });
-    }
-    if (stampa != null){
+    else {stampa1=[]}
+    if ($("#trapCard").is(':checked')){
+            stampa2=prikazane.filter(e=>e.type=="trap");
+    } 
+    else {stampa2=[]}
+    if ($("#monsterCard").is(':checked')){
+            stampa3=prikazane.filter(e=>e.type=="monster");
+    } 
+    else {stampa3=[]}
+    let stampa=[].concat(stampa1,stampa2,stampa3);
+    //console.log("stampa check");
+    //console.log(stampa);
+    if($("#spellCard").is(':checked') || $("#trapCard").is(':checked') || $("#monsterCard").is(':checked')){
         printCards(stampa);
     }
+   else printCards(prikazane);
+    
 }
 
 
