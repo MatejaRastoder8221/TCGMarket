@@ -217,3 +217,8 @@ form .showError {
   height: 40px;
   margin:0 auto;
 }
+#greskaShop{
+  text-align: center;
+  color: red;
+  margin-top: 6vw;
+}

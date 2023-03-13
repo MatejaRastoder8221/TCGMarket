@@ -121,6 +121,9 @@ function printCards(data){
     `
         }
         $("#products").html(html);
+        if((document.getElementById("products").innerHTML)==""){
+            $("#products").html(`<div id="greskaShop"><h1>Ne postoji takav proizvod</h1></div>`);
+        }
         setLS("karteLS",data);
         //console.log(data);
     }
