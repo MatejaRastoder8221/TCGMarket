@@ -225,3 +225,12 @@ form .showError {
 #broj-proizvoda{
   color:#3f47cc;
 }
+.image-cart{
+  height: 90px;
+}
+table .btn{
+  width: 100%;
+    height: 100%;
+    background-color:#3f47cc ;
+    color: #fff;
+}

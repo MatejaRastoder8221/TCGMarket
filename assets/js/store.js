@@ -1,7 +1,7 @@
 const BASEURL ="assets/data/"
 
 window.onload = function(){
-    //ciscenje localstorage za filter po checkboxu
+//ciscenje localstorage za filter po checkboxu
     setLS("kolekcijaLS",null);
     //search 
     document.getElementById("search").addEventListener("input", filterPosts);
@@ -45,9 +45,15 @@ function header(data){
         <ul class="navbar-nav" id="pocetna">`
     let activeLi=0;
     let klasa="";
+    let brojProizvoda=getLS("brojProizvodaLS");
     for (link of data){
         if (link.href=="cart.html"){
-            html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda"></span></a></li>`
+            if(brojProizvoda==null){
+                html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda">0 products</span></a></li>`
+            }
+            else{
+                html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda">${brojProizvoda}</span></a></li>`
+            }
     }
     else {
         html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
@@ -392,9 +398,7 @@ function addToCart(){
     }
 
     function updateQty(){
-
         let productsLS = getLS("cart");
-
         for(let p of productsLS){
             if(p.id == idP){
                 p.qty++;
@@ -415,26 +419,31 @@ function addToCart(){
 
         setLS("cart", productLS);
     }
+}
+var quantity=0;
+function printNumberOfProducts(){
+    let productsCart = getLS("cart");
+    if(productsCart == null){
+        $("#broj-proizvoda").html("(0 products)");
+        console.log("problem?");
+    }
+    else{   
+        // quantity=0;
+        // for(let i=0;i<productsCart.length;i++){
+        //     quantity+=productsCart[i].qty;
+        // }
+        quantity=productsCart.length;
+        let numberOfProducts = quantity;
+        let txt = quantity+" ";
 
-    function printNumberOfProducts(){
-        let productsCart = getLS("cart");
-    
-        if(productsCart == null){
-            $("#broj-proizvoda").html(`(0 products)`);
+        if(numberOfProducts == 1){
+            txt = quantity+" "+"product";
         }
         else{
-            let numberOfProducts = productsCart.length;
-            let txt = "";
-    
-            if(numberOfProducts == 1){
-                txt = "product";
-            }
-            else{
-                txt = "products";
-            }
-    
-            $("#broj-proizvoda").html(`(${numberOfProducts} ${txt})`)
+            txt =quantity+" products";
         }
+        setLS("brojProizvodaLS",txt);
+        $("#broj-proizvoda").html(`${txt}`)
     }
 }
 

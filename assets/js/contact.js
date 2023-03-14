@@ -235,3 +235,10 @@ document.getElementById("submitForme").addEventListener("click",function(){
     }
 
 })
+
+function setLS(key,value){
+    localStorage.setItem(key,JSON.stringify(value));
+}
+function getLS(key){
+    return JSON.parse(localStorage.getItem(key));
+}

@@ -10,7 +10,7 @@ ispisFootera();
 //f-ja za ispis navigacije
 function header(data){
     let html=` <div class="container">
-    <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png"/></a>
+    <a href="index.html"><img class="d-inline-block align-top"src="assets/img/logobanner.png" alt="banner"/></a>
     <button 
     type="button" 
     data-bs-toggle="collapse" 
@@ -24,9 +24,21 @@ function header(data){
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" id="pocetna">`
-    
+    let activeLi=0;
+    let klasa="";
+    let brojProizvoda=getLS("brojProizvodaLS");
     for (link of data){
-        html+=`<li class="nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
+        if (link.href=="cart.html"){
+            if(brojProizvoda==null){
+                html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda">0 products</span></a></li>`
+            }
+            else{
+                html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}<span id="broj-proizvoda">${brojProizvoda}</span></a></li>`
+            }
+    }
+    else {
+        html+=`<li class="${klasa} nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
+    }
     }
     html+=`</ul></div></div>`
     $("#navigation").html(html);
@@ -76,3 +88,10 @@ function ajaxCallBack(url,result){
             $(this).val('Show Less');
         }
     });
+
+    function setLS(key,value){
+        localStorage.setItem(key,JSON.stringify(value));
+    }
+    function getLS(key){
+        return JSON.parse(localStorage.getItem(key));
+    }
