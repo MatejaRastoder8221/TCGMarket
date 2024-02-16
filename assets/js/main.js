@@ -1024,4 +1024,8 @@ if (currentPage.includes("author.html")) {
     ajaxCallBack(BASEURL + "menu.json", header);
     ispisFootera();
     storeFunctions();
-}
+}else{
+    ajaxCallBack(BASEURL + "menu.json", header);
+    ispisFootera();
+    mainFunctions();
+} 
