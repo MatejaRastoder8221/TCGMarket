@@ -76,11 +76,11 @@ i {
       font-size: 1.5vw; }
 #slider {
   background-image: url(../img/banner-01.jpg);
+  transition: background-image 1s ease;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  transition: 1s;
-  height: 200px; }
+  height: 30vh; }
 #slider #modalBoxContact {
     position: absolute;
     right: 20px;
